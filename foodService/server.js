@@ -168,6 +168,22 @@ app.post("/api/v1/wasteage-entry", async (req, res) => {
   }
 });
 
+app.get('/api/v1/getFoodList', async (req, res) => {
+  try {
+    const results = await db.query(`SELECT food_id, name FROM food`);
+
+    res.status(200).json({
+      status: 'success',
+      results: results.rows.length,
+      data: {
+        foodItems: results.rows
+      },
+    });
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 // Get food
 app.get('/api/v1/food-of-the-day', async (req, res) => {
   try {
