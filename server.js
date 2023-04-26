@@ -3,15 +3,15 @@ const express = require("express");
 const morgan = require("morgan");
 const app = express();
 const cors = require("cors");
+const authorize = require("./middleware/authorize");
 
 // For middlewares
 app.use(morgan("dev"));
 app.use(cors());
 app.use(express.json());
 
-const port = process.env.SERVER_PORT || 3002;
+const port = process.env.SERVER_PORT;
 
-const cors = require('cors');
 app.use(cors({
   origin: '*'
 }));
