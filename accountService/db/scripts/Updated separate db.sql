@@ -1,4 +1,4 @@
-DATABASE NAME: account;
+DATABASE NAME: account/food;
 
 CREATE TABLE role (
     role_id INTEGER PRIMARY KEY,
@@ -33,10 +33,6 @@ select * from role;
 insert into role (role_id, description)
 values('2','caterer');
 select * from role;
-
-------------------------------------------------------------------------
-
-DATABASE NAME: food;
 
 CREATE TABLE meal (
     meal_id INTEGER PRIMARY KEY,
@@ -105,19 +101,15 @@ CREATE TABLE food_of_the_day(
 		REFERENCES meal(meal_id)
 );
 
-------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------
 
-DATABASE NAME: notification;
+DATABASE NAME: notification/reward;
 
 CREATE TABLE notification (
 	notification_id SERIAL PRIMARY KEY,
 	message VARCHAR (100) NOT NULL,
 	date DATE NOT NULL
 );
-
-------------------------------------------------------------------------
-
-DATABASE NAME: reward;
 
 CREATE TABLE reward (
 	reward_id INTEGER PRIMARY KEY,

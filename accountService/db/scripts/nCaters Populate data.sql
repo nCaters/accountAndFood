@@ -32,3 +32,24 @@ Insert into food_of_the_day values('24/4/2023', 4, 2);
 Insert into food_of_the_day values('24/4/2023', 7, 2);
 Insert into food_of_the_day values('25/4/2023', 8, 2);
 Insert into food_of_the_day values('25/4/2023', 11, 3);
+
+
+-- reward
+Insert into reward values(1, 'Green Tea', 5);
+Insert into reward values(2, 'Milk Tea', 5);
+Insert into reward values(3, 'Peach Tea', 5);
+Insert into reward values(4, 'Apple', 5);
+Insert into reward values(5, 'Orange', 5);
+Insert into reward values(6, 'Red Bean Bun', 5);
+
+-- account
+insert into role (role_id, description)
+values('0','admin');
+
+insert into role (role_id, description)
+values('1','user');
+select * from role;
+
+insert into role (role_id, description)
+values('2','caterer');
+select * from role;

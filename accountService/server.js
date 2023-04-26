@@ -11,9 +11,9 @@ app.use(express.json());
 
 const port = process.env.SERVER_PORT || 3002;
 
-app.use("/auth", require("./routes/auth"));
+app.use("/api/v1/auth", require("./routes/auth"));
 
-app.use("/dashboard", require("./routes/dashboard"));
+app.use("/api/v1/dashboard", require("./routes/dashboard"));
 
 app.listen(port, () => {
   console.log(`server is up and listening on  port ${port}`);
