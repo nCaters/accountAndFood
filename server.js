@@ -21,6 +21,21 @@ app.use("/api/v1/auth", require("./routes/auth"));
 
 app.use("/api/v1/dashboard", require("./routes/dashboard"));
 
+//health check
+app.get('/health', async (req, res) => {
+  const healthcheck = {
+        uptime: process.uptime(),
+        message: 'OK',
+        timestamp: Date.now()
+    };
+    try {
+        res.send(healthcheck);
+    } catch (error) {
+        healthcheck.message = error;
+        res.status(503).send();
+    }
+});
+
 // Food Stuff
 // Get food
 app.get('/api/v1/food', async (req, res) => {
