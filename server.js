@@ -10,7 +10,7 @@ app.use(morgan("dev"));
 app.use(cors());
 app.use(express.json());
 
-const port = process.env.SERVER_PORT;
+const port = process.env.PORT;
 
 app.use(cors({
   origin: '*'
