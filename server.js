@@ -4,6 +4,7 @@ const morgan = require("morgan");
 const app = express();
 const cors = require("cors");
 const authorize = require("./middleware/authorize");
+const db = require('./db');
 
 // For middlewares
 app.use(morgan("dev"));
