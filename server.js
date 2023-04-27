@@ -209,6 +209,26 @@ app.get('/api/v1/food-of-the-day', async (req, res) => {
   }
 });
 
+// getPoints
+app.get("/api/v1/get-points", async (req, res) => {
+  try {
+    var user_id = req.body.user_id;
+
+    const result = await db.query(
+      `SELECT * FROM point WHERE user_id = $1`,
+      [user_id]
+    );
+
+    res.status(200).json({
+      status: "success",
+      results: result.rows.length,
+      data: {},
+    });
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 app.listen(port, () => {
   console.log(`server is up and listening on  port ${port}`);
 });
