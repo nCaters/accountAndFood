@@ -222,7 +222,9 @@ app.get("/api/v1/get-points", async (req, res) => {
     res.status(200).json({
       status: "success",
       results: result.rows.length,
-      data: {},
+      data: {
+        points: result.rows,
+      },
     });
   } catch (err) {
     console.log(err);
