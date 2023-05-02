@@ -223,7 +223,7 @@ app.get("/api/v1/get-points", async (req, res) => {
       status: "success",
       results: result.rows.length,
       data: {
-        points: result.rows[0].points_earned,
+        points: result.rows,
       },
     });
   } catch (err) {
