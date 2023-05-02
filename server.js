@@ -212,18 +212,18 @@ app.get('/api/v1/food-of-the-day', async (req, res) => {
 // getPoints
 app.get("/api/v1/get-points", async (req, res) => {
   try {
-    var user_id = req.params.user_id;
+    var user_id = req.body.user_id;
 
     const result = await db.query(
       `SELECT * FROM point WHERE user_id = $1`,
       [user_id]
     );
-        
+
     res.status(200).json({
       status: "success",
       results: result.rows.length,
       data: {
-        points: result.rows[0].points_earned,
+        points: result.rows,
       },
     });
   } catch (err) {
