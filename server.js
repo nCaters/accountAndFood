@@ -212,7 +212,8 @@ app.get('/api/v1/food-of-the-day', async (req, res) => {
 // getPoints
 app.get("/api/v1/get-points", async (req, res) => {
   try {
-    var user_id = req.body.user_id;
+    var user_id = req.params.user_id;
+    console.log("user_id: " + user_id)
 
     const result = await db.query(
       `SELECT points_earned FROM point WHERE user_id = $1`,
