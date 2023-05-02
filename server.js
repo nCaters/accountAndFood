@@ -215,7 +215,7 @@ app.get("/api/v1/get-points", async (req, res) => {
     var user_id = req.params.user_id;
 
     const result = await db.query(
-      `SELECT * FROM point WHERE user_id = $1`,
+      `SELECT points_earned FROM point WHERE user_id = $1`,
       [user_id]
     );
         
