@@ -25,16 +25,16 @@ app.use("/api/v1/dashboard", require("./routes/dashboard"));
 //health check
 app.get('/health', async (req, res) => {
   const healthcheck = {
-        uptime: process.uptime(),
-        message: 'OK',
-        timestamp: Date.now()
-    };
-    try {
-        res.send(healthcheck);
-    } catch (error) {
-        healthcheck.message = error;
-        res.status(503).send();
-    }
+    uptime: process.uptime(),
+    message: 'OK',
+    timestamp: Date.now()
+  };
+  try {
+    res.send(healthcheck);
+  } catch (error) {
+    healthcheck.message = error;
+    res.status(503).send();
+  }
 });
 
 // Food Stuff
@@ -144,7 +144,7 @@ app.get('/api/v1/wastage', async (req, res) => {
   }
 });
 // insert wasteage
-app.post("/api/v1/wasteage-entry", async (req, res) => {
+app.post("/api/v1/wastage-entry", async (req, res) => {
   try {
     var date = req.body.date;
     var food_waste_amount = req.body.food_waste_amount;
@@ -218,7 +218,7 @@ app.post("/api/v1/get-points", async (req, res) => {
       `SELECT points_earned FROM point WHERE user_id = $1`,
       [user_id]
     );
-        
+
     res.status(200).json({
       status: "success",
       results: result.rows.length,
